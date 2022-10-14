@@ -24,7 +24,9 @@ const todoList = () => {
       (data) => data.dueDate > new Date().toLocaleDateString("en-CA")
     );
   };
-
+  const toDisplayableList = (list) => {
+    return list.map((data)=>`${data.completed ? "[x]" : "[ ]"} ${data.title} ${data.dueDate == today ? "" : data.dueDate}`).join("\n")
+  }
   return { all, add, markAsComplete, overdue, dueToday, dueLater };
 };
 module.exports = todoList;
