@@ -28,12 +28,11 @@ const todoList = () => {
     return list
       .map(
         (data) =>
-          `${data.completed ? "[x]" : "[ ]"} ${data.title} ${
-            data.dueDate == today ? "" : data.dueDate
+          `${data.completed ? "[x]" : "[ ]"} ${data.title.trim()} ${
+            data.dueDate === today ? "" : data.dueDate
           }`
       )
       .join("\n")
-      .trim();
   };
   return {
     all,
