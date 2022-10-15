@@ -25,8 +25,24 @@ const todoList = () => {
     );
   };
   const toDisplayableList = (list) => {
-    return list.map((data)=>`${data.completed ? "[x]" : "[ ]"} ${data.title} ${data.dueDate == today ? "" : data.dueDate}`).join("\n")
-  }
-  return { all, add, markAsComplete, overdue, dueToday, dueLater,toDisplayableList };
+    return list
+      .map(
+        (data) =>
+          `${data.completed ? "[x]" : "[ ]"} ${data.title} ${
+            data.dueDate == today ? "" : data.dueDate
+          }`
+      )
+      .join("\n")
+      .trim();
+  };
+  return {
+    all,
+    add,
+    markAsComplete,
+    overdue,
+    dueToday,
+    dueLater,
+    toDisplayableList,
+  };
 };
 module.exports = todoList;
