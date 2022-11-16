@@ -30,7 +30,7 @@ const todoList = () => {
         (data) =>
           `${data.completed ? "[x]" : "[ ]"} ${data.title.trim()} ${
             data.dueDate === today ? "" : data.dueDate
-          }`
+          }`.trim()
       )
       .join("\n")
   };
